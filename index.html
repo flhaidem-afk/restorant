@@ -3,284 +3,322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TasteBite - Restaurant & Ordering</title>
+    <meta name="description" content="La Maison Dorée - Fine Dining Restaurant. Experience exquisite French cuisine crafted with passion and the finest ingredients in an elegant atmosphere.">
+    <meta name="keywords" content="fine dining, restaurant, French cuisine, reservations, gourmet food, chef's specials">
+    <title>La Maison Dorée | Fine Dining Restaurant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<base target="_blank">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-icon">
+                <i class="fas fa-utensils"></i>
+            </div>
+            <h2>La Maison Dorée</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <rect width="40" height="40" rx="12" fill="#f59e0b"/>
-                    <path d="M12 28c0-6 4-10 8-14 4 4 8 8 8 14" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 20c2-2 4-2 6 0" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="20" cy="14" r="3" stroke="white" stroke-width="2"/>
-                </svg>
-                <div class="logo-text">
-                    <span class="logo-title">TasteBite</span>
-                    <span class="logo-tagline">Fine Dining</span>
-                </div>
+            <a href="#home" class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>La Maison Dorée</span>
             </a>
-            
             <div class="nav-links" id="navLinks">
-                <a href="#menu" class="nav-link">Menu</a>
-                <a href="#reservations" class="nav-link">Reservations</a>
+                <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#specials" class="nav-link">Specials</a>
                 <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            
-            <div class="nav-actions">
-                <button class="icon-btn" id="cartBtn">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 22a1 1 0 100-2 1 1 0 000 2z"/>
-                        <path d="M20 22a1 1 0 100-2 1 1 0 000 2z"/>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
-                    </svg>
-                    <span class="cart-badge" id="cartBadge">0</span>
-                </button>
-                <button class="btn-reserve" onclick="scrollToReserve()">Book a Table</button>
-                <button class="mobile-toggle" id="mobileToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+            <a href="#reservation" class="btn btn-primary nav-cta">
+                <i class="fas fa-calendar-alt"></i>
+                Reserve
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="#home" class="mobile-link">Home</a>
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#menu" class="mobile-link">Menu</a>
+            <a href="#specials" class="mobile-link">Specials</a>
+            <a href="#gallery" class="mobile-link">Gallery</a>
+            <a href="#testimonials" class="mobile-link">Reviews</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+            <a href="#reservation" class="btn btn-primary mobile-cta">Reserve a Table</a>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-bg">
             <div class="hero-overlay"></div>
-            <div class="floating-plate">
-                <svg viewBox="0 0 300 300" class="plate-svg">
-                    <defs>
-                        <linearGradient id="plateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.3" />
-                            <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.1" />
-                        </linearGradient>
-                    </defs>
-                    <circle cx="150" cy="150" r="120" fill="url(#plateGrad)" stroke="#f59e0b" stroke-width="2" opacity="0.3"/>
-                    <circle cx="150" cy="150" r="80" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.2" stroke-dasharray="5,5"/>
-                    <!-- Food illustration -->
-                    <ellipse cx="150" cy="140" rx="50" ry="30" fill="#f59e0b" opacity="0.6"/>
-                    <ellipse cx="130" cy="130" rx="25" ry="15" fill="#fbbf24" opacity="0.8"/>
-                    <ellipse cx="170" cy="130" rx="25" ry="15" fill="#fbbf24" opacity="0.8"/>
-                    <ellipse cx="150" cy="120" rx="20" ry="12" fill="#fcd34d" opacity="0.9"/>
-                    <!-- Steam -->
-                    <path d="M130 90 Q140 70 130 50" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round"/>
-                    <path d="M150 85 Q160 65 150 45" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round"/>
-                    <path d="M170 90 Q180 70 170 50" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round"/>
-                </svg>
-            </div>
         </div>
-        
         <div class="hero-content">
-            <div class="hero-badge">
-                <span class="badge-star">★</span>
-                <span>Michelin Star Restaurant</span>
+            <div class="hero-badge reveal-up">
+                <i class="fas fa-star"></i>
+                <span>Michelin-Starred Excellence</span>
             </div>
-            <h1 class="hero-title">
-                Taste the
-                <span class="highlight">Extraordinary</span>
+            <h1 class="hero-title reveal-up">
+                A Symphony of<br>
+                <span class="gold-text">Flavors</span>
             </h1>
-            <p class="hero-desc">Experience culinary excellence with our farm-to-table dishes, crafted by award-winning chefs using the freshest seasonal ingredients.</p>
-            <div class="hero-cta">
-                <button class="btn-primary" onclick="scrollToMenu()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
-                    </svg>
+            <p class="hero-subtitle reveal-up">
+                Experience the art of French gastronomy where every dish tells a story. 
+                Crafted with passion, served with elegance, remembered forever.
+            </p>
+            <div class="hero-buttons reveal-up">
+                <a href="#menu" class="btn btn-primary btn-lg">
+                    <i class="fas fa-book-open"></i>
                     View Menu
-                </button>
-                <button class="btn-outline" onclick="scrollToReserve()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                        <line x1="16" y1="2" x2="16" y2="6"/>
-                        <line x1="8" y1="2" x2="8" y2="6"/>
-                        <line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
-                    Reserve Table
-                </button>
+                </a>
+                <a href="#reservation" class="btn btn-outline btn-lg">
+                    <i class="fas fa-calendar-check"></i>
+                    Reserve a Table
+                </a>
             </div>
-            <div class="hero-stats">
-                <div class="h-stat">
-                    <span class="h-number">15+</span>
-                    <span class="h-label">Years Experience</span>
+            <div class="hero-info reveal-up">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Gourmet Avenue, Paris District</span>
                 </div>
-                <div class="h-stat">
-                    <span class="h-number">50+</span>
-                    <span class="h-label">Signature Dishes</span>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(555) 234-5678</span>
                 </div>
-                <div class="h-stat">
-                    <span class="h-number">4.9</span>
-                    <span class="h-label">Customer Rating</span>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Tue - Sun: 5PM - 11PM</span>
                 </div>
             </div>
         </div>
-        
         <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <span>Scroll to explore</span>
-        </div>
-    </section>
-
-    <!-- Featured Dishes -->
-    <section class="featured" id="menu">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">Our Menu</span>
-                <h2 class="section-title">Signature Dishes</h2>
-                <p class="section-desc">Each dish tells a story of passion, tradition, and innovation</p>
-            </div>
-            
-            <div class="menu-tabs">
-                <button class="menu-tab active" data-category="all">All</button>
-                <button class="menu-tab" data-category="starters">Starters</button>
-                <button class="menu-tab" data-category="mains">Main Course</button>
-                <button class="menu-tab" data-category="desserts">Desserts</button>
-                <button class="menu-tab" data-category="drinks">Drinks</button>
-            </div>
-            
-            <div class="dishes-grid" id="dishesGrid">
-                <!-- Dishes populated by JS -->
-            </div>
-            
-            <div class="menu-action">
-                <button class="btn-text" onclick="showFullMenu()">
-                    View Full Menu
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="5" y1="12" x2="19" y2="12"/>
-                        <polyline points="12 5 19 12 12 19"/>
-                    </svg>
-                </button>
+            <span>Scroll to Explore</span>
+            <div class="scroll-line">
+                <div class="scroll-dot"></div>
             </div>
         </div>
     </section>
 
-    <!-- Reservation Section -->
-    <section class="reservation" id="reservations">
-        <div class="reservation-bg">
-            <div class="pattern-overlay"></div>
-        </div>
-        <div class="section-container">
-            <div class="reservation-grid">
-                <div class="reservation-info">
-                    <span class="section-tag">Reservations</span>
-                    <h2 class="section-title">Book Your Table</h2>
-                    <p class="section-desc">Reserve your spot for an unforgettable dining experience. Perfect for date nights, celebrations, or business dinners.</p>
-                    
-                    <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12 6 12 12 16 14"/>
-                                </svg>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images reveal-left">
+                    <div class="about-img-main">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=700&fit=crop" alt="Restaurant interior" loading="lazy">
+                    </div>
+                    <div class="about-img-accent">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=300&h=300&fit=crop" alt="Chef cooking" loading="lazy">
+                    </div>
+                    <div class="experience-badge">
+                        <span class="exp-number">25</span>
+                        <span class="exp-text">Years of<br>Culinary Art</span>
+                    </div>
+                </div>
+                <div class="about-content reveal-right">
+                    <span class="section-label">Our Story</span>
+                    <h2 class="section-title">Where Passion Meets<br><span class="gold-text">Perfection</span></h2>
+                    <p class="about-text">
+                        Founded in 2001 by Chef Antoine Dubois, La Maison Dorée has been a beacon of 
+                        culinary excellence in the heart of the city. Our philosophy is rooted in the 
+                        belief that dining is not merely sustenance, but an art form that engages 
+                        all the senses.
+                    </p>
+                    <p class="about-text">
+                        Every ingredient is sourced from local farms and artisan producers, ensuring 
+                        the freshest flavors while supporting our community. Our kitchen is a stage 
+                        where tradition meets innovation, creating dishes that honor classical French 
+                        techniques while embracing modern creativity.
+                    </p>
+                    <div class="chef-intro">
+                        <div class="chef-img">
+                            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=150&h=150&fit=crop&crop=face" alt="Chef Antoine Dubois" loading="lazy">
+                        </div>
+                        <div class="chef-info">
+                            <h4>Chef Antoine Dubois</h4>
+                            <span>Executive Chef & Founder</span>
+                            <p>"Cooking is an expression of love, a gift we share with every guest."</p>
+                        </div>
+                    </div>
+                    <div class="about-values">
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-leaf"></i>
                             </div>
-                            <div class="info-text">
-                                <h4>Opening Hours</h4>
-                                <p>Mon-Sun: 11:00 AM - 11:00 PM</p>
+                            <div class="value-text">
+                                <h4>Fresh Ingredients</h4>
+                                <p>Farm-to-table sourcing daily</p>
                             </div>
                         </div>
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-heart"></i>
                             </div>
-                            <div class="info-text">
-                                <h4>Location</h4>
-                                <p>123 Gourmet Avenue, NYC</p>
+                            <div class="value-text">
+                                <h4>Made with Love</h4>
+                                <p>Every dish crafted with care</p>
                             </div>
                         </div>
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-                                </svg>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-award"></i>
                             </div>
-                            <div class="info-text">
-                                <h4>Contact</h4>
-                                <p>+1 (555) 123-4567</p>
+                            <div class="value-text">
+                                <h4>Award Winning</h4>
+                                <p>Michelin-starred since 2008</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="reservation-form-wrapper">
-                    <form class="reservation-form" id="reservationForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Date</label>
-                                <input type="date" id="resDate" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Time</label>
-                                <select id="resTime" required>
-                                    <option value="">Select time</option>
-                                    <option>11:00 AM</option>
-                                    <option>12:00 PM</option>
-                                    <option>1:00 PM</option>
-                                    <option>6:00 PM</option>
-                                    <option>7:00 PM</option>
-                                    <option>8:00 PM</option>
-                                    <option>9:00 PM</option>
-                                </select>
-                            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Menu Section -->
+    <section class="featured-menu" id="menu">
+        <div class="container">
+            <div class="section-header center reveal-up">
+                <span class="section-label">Our Menu</span>
+                <h2 class="section-title">Signature <span class="gold-text">Creations</span></h2>
+                <p class="section-subtitle">A curated selection of our most beloved dishes</p>
+            </div>
+
+            <!-- Menu Filters -->
+            <div class="menu-filters reveal-up">
+                <button class="menu-filter-btn active" data-category="all">All</button>
+                <button class="menu-filter-btn" data-category="starters">Starters</button>
+                <button class="menu-filter-btn" data-category="mains">Main Courses</button>
+                <button class="menu-filter-btn" data-category="desserts">Desserts</button>
+                <button class="menu-filter-btn" data-category="beverages">Beverages</button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="menu-grid" id="menuGrid">
+                <!-- Rendered by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section class="specials" id="specials">
+        <div class="container">
+            <div class="section-header center reveal-up">
+                <span class="section-label">Special Offers</span>
+                <h2 class="section-title">Today's <span class="gold-text">Specials</span></h2>
+                <p class="section-subtitle">Exclusive dishes available for a limited time</p>
+            </div>
+            <div class="specials-grid">
+                <div class="special-card reveal-up">
+                    <div class="special-badge">Chef's Choice</div>
+                    <div class="special-img">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&h=350&fit=crop" alt="Ribeye Steak" loading="lazy">
+                    </div>
+                    <div class="special-content">
+                        <span class="special-day">Tuesday Special</span>
+                        <h3>Prime Ribeye Steak</h3>
+                        <p>28-day dry-aged ribeye with truffle mashed potatoes, roasted bone marrow, and red wine reduction.</p>
+                        <div class="special-price">
+                            <span class="old-price">$85</span>
+                            <span class="new-price">$65</span>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Guests</label>
-                                <select id="resGuests" required>
-                                    <option value="">Number of guests</option>
-                                    <option>1 Person</option>
-                                    <option>2 People</option>
-                                    <option>3 People</option>
-                                    <option>4 People</option>
-                                    <option>5-8 People</option>
-                                    <option>8+ People</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Occasion</label>
-                                <select id="resOccasion">
-                                    <option value="">Select occasion (optional)</option>
-                                    <option>Birthday</option>
-                                    <option>Anniversary</option>
-                                    <option>Business Dinner</option>
-                                    <option>Date Night</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
+                    </div>
+                </div>
+                <div class="special-card reveal-up">
+                    <div class="special-badge">20% Off</div>
+                    <div class="special-img">
+                        <img src="https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=500&h=350&fit=crop" alt="Lobster Thermidor" loading="lazy">
+                    </div>
+                    <div class="special-content">
+                        <span class="special-day">Wednesday Special</span>
+                        <h3>Lobster Thermidor</h3>
+                        <p>Whole Maine lobster with cognac cream sauce, gruyère cheese crust, and saffron risotto.</p>
+                        <div class="special-price">
+                            <span class="old-price">$72</span>
+                            <span class="new-price">$58</span>
                         </div>
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" placeholder="John Doe" id="resName" required>
+                    </div>
+                </div>
+                <div class="special-card reveal-up">
+                    <div class="special-badge">Limited</div>
+                    <div class="special-img">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&h=350&fit=crop" alt="Truffle Pizza" loading="lazy">
+                    </div>
+                    <div class="special-content">
+                        <span class="special-day">Weekend Brunch</span>
+                        <h3>Black Truffle Pizza</h3>
+                        <p>Wood-fired sourdough with black truffle cream, wild mushrooms, fontina cheese, and aged balsamic.</p>
+                        <div class="special-price">
+                            <span class="old-price">$48</span>
+                            <span class="new-price">$38</span>
                         </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" placeholder="john@example.com" id="resEmail" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Special Requests</label>
-                            <textarea placeholder="Any dietary restrictions or special requests..." rows="3" id="resNotes"></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">
-                            <span class="btn-text">Confirm Reservation</span>
-                            <span class="btn-loader" style="display:none;">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                                </svg>
-                            </span>
-                        </button>
-                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef's Recommendations -->
+    <section class="recommendations" id="recommendations">
+        <div class="container">
+            <div class="section-header center reveal-up">
+                <span class="section-label">Chef's Picks</span>
+                <h2 class="section-title">Chef's <span class="gold-text">Recommendations</span></h2>
+                <p class="section-subtitle">Hand-selected by Chef Antoine for an unforgettable experience</p>
+            </div>
+            <div class="recommendations-grid">
+                <div class="rec-card featured reveal-up">
+                    <div class="rec-img">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=500&h=400&fit=crop" alt="Duck Confit" loading="lazy">
+                    </div>
+                    <div class="rec-content">
+                        <span class="rec-tag">Signature Dish</span>
+                        <h3>Duck Confit à l'Orange</h3>
+                        <p>Slow-cooked duck leg with Grand Marnier orange glaze, parsnip purée, and candied orange segments. A masterpiece of texture and flavor.</p>
+                        <span class="rec-price">$52</span>
+                    </div>
+                </div>
+                <div class="rec-card reveal-up">
+                    <div class="rec-img">
+                        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=500&h=400&fit=crop" alt="Beef Wellington" loading="lazy">
+                    </div>
+                    <div class="rec-content">
+                        <span class="rec-tag">Classic</span>
+                        <h3>Beef Wellington</h3>
+                        <p>Tenderloin wrapped in mushroom duxelles and golden puff pastry, served with truffle jus and roasted root vegetables.</p>
+                        <span class="rec-price">$68</span>
+                    </div>
+                </div>
+                <div class="rec-card reveal-up">
+                    <div class="rec-img">
+                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500&h=400&fit=crop" alt="Soufflé" loading="lazy">
+                    </div>
+                    <div class="rec-content">
+                        <span class="rec-tag">Must Try</span>
+                        <h3>Grand Marnier Soufflé</h3>
+                        <p>Cloud-like vanilla soufflé with a heart of warm Grand Marnier crème anglaise. Prepared to order for the perfect rise.</p>
+                        <span class="rec-price">$24</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -288,219 +326,567 @@
 
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
-        <div class="section-container">
-            <div class="section-header center">
-                <span class="section-tag">Gallery</span>
-                <h2 class="section-title">Our Atmosphere</h2>
-                <p class="section-desc">A glimpse into our elegant dining spaces and culinary artistry</p>
+        <div class="container">
+            <div class="section-header center reveal-up">
+                <span class="section-label">Gallery</span>
+                <h2 class="section-title">A Feast for the <span class="gold-text">Eyes</span></h2>
+                <p class="section-subtitle">Glimpses of our culinary artistry and elegant ambiance</p>
             </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item large">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop" alt="Restaurant Interior">
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item large reveal-up">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop" alt="Restaurant dining room" loading="lazy">
                     <div class="gallery-overlay">
-                        <span class="gallery-label">Main Dining Hall</span>
+                        <div class="gallery-info">
+                            <h4>Main Dining Room</h4>
+                            <p>Elegant ambiance for unforgettable evenings</p>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=400&fit=crop" alt="Fine Dining">
+                <div class="gallery-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Steak dish" loading="lazy">
                     <div class="gallery-overlay">
-                        <span class="gallery-label">Chef's Table</span>
+                        <div class="gallery-info">
+                            <h4>Prime Cuts</h4>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=400&fit=crop" alt="Bar Area">
+                <div class="gallery-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop" alt="Pizza" loading="lazy">
                     <div class="gallery-overlay">
-                        <span class="gallery-label">Cocktail Bar</span>
+                        <div class="gallery-info">
+                            <h4>Wood-Fired</h4>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=400&h=400&fit=crop" alt="Private Room">
+                <div class="gallery-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300&fit=crop" alt="Kitchen" loading="lazy">
                     <div class="gallery-overlay">
-                        <span class="gallery-label">Private Dining</span>
+                        <div class="gallery-info">
+                            <h4>Our Kitchen</h4>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop" alt="Food Plating">
+                <div class="gallery-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=300&fit=crop" alt="Dessert" loading="lazy">
                     <div class="gallery-overlay">
-                        <span class="gallery-label">Plating Art</span>
+                        <div class="gallery-info">
+                            <h4>Sweet Creations</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&h=300&fit=crop" alt="Cocktails" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Craft Cocktails</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal-up">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=400&h=300&fit=crop" alt="Private dining" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h4>Private Dining</h4>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials" id="about">
-        <div class="section-container">
-            <div class="section-header center">
-                <span class="section-tag">Testimonials</span>
-                <h2 class="section-title">What Our Guests Say</h2>
+    <!-- Reservation Section -->
+    <section class="reservation" id="reservation">
+        <div class="container">
+            <div class="reservation-grid">
+                <div class="reservation-info reveal-left">
+                    <span class="section-label">Reservations</span>
+                    <h2 class="section-title">Book Your<br><span class="gold-text">Table</span></h2>
+                    <p class="reservation-desc">
+                        Reserve your table for an unforgettable dining experience. 
+                        For parties larger than 8, please contact us directly. 
+                        We look forward to welcoming you.
+                    </p>
+                    <div class="reservation-features">
+                        <div class="reservation-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Instant Confirmation</h4>
+                                <p>Receive booking confirmation immediately</p>
+                            </div>
+                        </div>
+                        <div class="reservation-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Free Cancellation</h4>
+                                <p>Cancel up to 24 hours before your reservation</p>
+                            </div>
+                        </div>
+                        <div class="reservation-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Special Requests</h4>
+                                <p>Let us know about dietary needs or celebrations</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reservation-contact">
+                        <div class="reservation-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(555) 234-5678</span>
+                        </div>
+                        <div class="reservation-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>reservations@lamaisondoree.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reservation-form-wrapper reveal-right">
+                    <form class="reservation-form" id="reservationForm" novalidate>
+                        <h3>Make a Reservation</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resName">Full Name *</label>
+                                <input type="text" id="resName" name="name" placeholder="John Doe" required>
+                                <span class="form-error" id="resNameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="resPhone">Phone Number *</label>
+                                <input type="tel" id="resPhone" name="phone" placeholder="(555) 123-4567" required>
+                                <span class="form-error" id="resPhoneError"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="resEmail">Email Address</label>
+                            <input type="email" id="resEmail" name="email" placeholder="john@example.com">
+                            <span class="form-error" id="resEmailError"></span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resDate">Date *</label>
+                                <input type="date" id="resDate" name="date" required>
+                                <span class="form-error" id="resDateError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="resTime">Time *</label>
+                                <select id="resTime" name="time" required>
+                                    <option value="" disabled selected>Select time...</option>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="17:30">5:30 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="18:30">6:30 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                    <option value="21:30">9:30 PM</option>
+                                    <option value="22:00">10:00 PM</option>
+                                </select>
+                                <span class="form-error" id="resTimeError"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="resGuests">Number of Guests *</label>
+                            <select id="resGuests" name="guests" required>
+                                <option value="" disabled selected>Select guests...</option>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5 Guests</option>
+                                <option value="6">6 Guests</option>
+                                <option value="7">7 Guests</option>
+                                <option value="8">8 Guests</option>
+                            </select>
+                            <span class="form-error" id="resGuestsError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="resOccasion">Occasion (Optional)</label>
+                            <select id="resOccasion" name="occasion">
+                                <option value="">Select occasion...</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="date">Date Night</option>
+                                <option value="business">Business Dinner</option>
+                                <option value="celebration">Celebration</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="resNotes">Special Requests</label>
+                            <textarea id="resNotes" name="notes" rows="3" placeholder="Dietary restrictions, seating preferences, etc..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <i class="fas fa-calendar-check"></i>
+                            Confirm Reservation
+                        </button>
+                        <p class="form-note">* Required fields. A confirmation email will be sent to you.</p>
+                    </form>
+                </div>
             </div>
-            
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header center reveal-up">
+                <span class="section-label">Testimonials</span>
+                <h2 class="section-title">What Our <span class="gold-text">Guests Say</span></h2>
+                <p class="section-subtitle">Real experiences from our cherished diners</p>
+            </div>
             <div class="testimonials-slider" id="testimonialsSlider">
                 <div class="testimonials-track">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"An absolutely unforgettable dining experience. The truffle risotto was divine, and the service was impeccable. This is now our go-to spot for special occasions."</p>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "An absolutely transcendent dining experience. The duck confit was the best I've ever had, 
+                            and the service was impeccable. This is what fine dining should be."
+                        </p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">SM</div>
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Emily Richardson" loading="lazy">
                             <div class="author-info">
-                                <span class="author-name">Sarah Mitchell</span>
-                                <span class="author-title">Food Critic, NY Times</span>
+                                <h4>Emily Richardson</h4>
+                                <span>Food Critic, Gourmet Magazine</span>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"The ambiance, the flavors, the presentation — everything was perfection. The wine pairing recommendation was spot on. Highly recommend the chef's tasting menu!"</p>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "We celebrated our anniversary here and it was magical. The staff went above and beyond 
+                            to make our evening special. The Beef Wellington is a masterpiece."
+                        </p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">JR</div>
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Michael & Sarah Chen" loading="lazy">
                             <div class="author-info">
-                                <span class="author-name">James Rodriguez</span>
-                                <span class="author-title">Verified Diner</span>
+                                <h4>Michael & Sarah Chen</h4>
+                                <span>Anniversary Celebration</span>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="testimonial-stars">★★★★★</div>
-                        <p class="testimonial-text">"We celebrated our anniversary here and it exceeded all expectations. The staff went above and beyond to make our evening special. The chocolate soufflé is a must-try!"</p>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "The tasting menu was an incredible journey through flavors. Each course was perfectly 
+                            paced and the wine pairings were exceptional. A must-visit for any food lover."
+                        </p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">EP</div>
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="David Park" loading="lazy">
                             <div class="author-info">
-                                <span class="author-name">Emily & Paul</span>
-                                <span class="author-title">Anniversary Dinner</span>
+                                <h4>David Park</h4>
+                                <span>Executive Chef</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "From the moment we walked in, we knew this would be special. The ambiance, the service, 
+                            and most importantly the food exceeded every expectation. Simply extraordinary."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Isabella Romano" loading="lazy">
+                            <div class="author-info">
+                                <h4>Isabella Romano</h4>
+                                <span>Travel & Lifestyle Blogger</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="testimonials-nav">
-                    <button class="test-nav-btn" onclick="prevTestimonial()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15 18 9 12 15 6"/>
-                        </svg>
-                    </button>
-                    <div class="test-dots">
-                        <span class="test-dot active"></span>
-                        <span class="test-dot"></span>
-                        <span class="test-dot"></span>
+                    <button class="testimonial-prev" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+                    <div class="testimonials-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
                     </div>
-                    <button class="test-nav-btn" onclick="nextTestimonial()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"/>
-                        </svg>
-                    </button>
+                    <button class="testimonial-next" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Hours Section -->
+    <section class="hours" id="hours">
+        <div class="container">
+            <div class="hours-grid">
+                <div class="hours-info reveal-left">
+                    <span class="section-label">Hours</span>
+                    <h2 class="section-title">When We're<br><span class="gold-text">Open</span></h2>
+                    <p class="hours-desc">
+                        Join us for lunch, dinner, or our famous weekend brunch. 
+                        We recommend making a reservation, especially for weekend evenings.
+                    </p>
+                    <div class="hours-status" id="hoursStatus">
+                        <span class="status-indicator" id="statusIndicator"></span>
+                        <span id="statusText">Checking...</span>
+                    </div>
+                    <a href="#reservation" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Reserve Now
+                    </a>
+                </div>
+                <div class="hours-schedule reveal-right">
+                    <div class="schedule-item" data-day="monday">
+                        <span class="day">Monday</span>
+                        <span class="time">Closed</span>
+                    </div>
+                    <div class="schedule-item" data-day="tuesday">
+                        <span class="day">Tuesday</span>
+                        <span class="time">5:00 PM - 10:00 PM</span>
+                    </div>
+                    <div class="schedule-item" data-day="wednesday">
+                        <span class="day">Wednesday</span>
+                        <span class="time">5:00 PM - 10:00 PM</span>
+                    </div>
+                    <div class="schedule-item" data-day="thursday">
+                        <span class="day">Thursday</span>
+                        <span class="time">5:00 PM - 11:00 PM</span>
+                    </div>
+                    <div class="schedule-item" data-day="friday">
+                        <span class="day">Friday</span>
+                        <span class="time">5:00 PM - 11:00 PM</span>
+                    </div>
+                    <div class="schedule-item" data-day="saturday">
+                        <span class="day">Saturday</span>
+                        <span class="time">12:00 PM - 11:00 PM</span>
+                    </div>
+                    <div class="schedule-item" data-day="sunday">
+                        <span class="day">Sunday</span>
+                        <span class="time">12:00 PM - 9:00 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header center reveal-up">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">Get In <span class="gold-text">Touch</span></h2>
+                <p class="section-subtitle">We'd love to hear from you</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>123 Gourmet Avenue<br>Paris District, NY 10001</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+15552345678">(555) 234-5678</a></p>
+                            <p><a href="tel:+15559876543">(555) 987-6543</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@lamaisondoree.com">info@lamaisondoree.com</a></p>
+                            <p><a href="mailto:reservations@lamaisondoree.com">reservations@lamaisondoree.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Business Hours</h4>
+                            <p>Tue - Thu: 5PM - 10PM</p>
+                            <p>Fri - Sat: 5PM - 11PM</p>
+                            <p>Sun: 12PM - 9PM</p>
+                            <p>Mon: Closed</p>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper reveal-right">
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <h3>Send Us a Message</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Full Name *</label>
+                                <input type="text" id="contactName" name="name" placeholder="John Doe" required>
+                                <span class="form-error" id="contactNameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email *</label>
+                                <input type="email" id="contactEmail" name="email" placeholder="john@example.com" required>
+                                <span class="form-error" id="contactEmailError"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone</label>
+                            <input type="tel" id="contactPhone" name="phone" placeholder="(555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Subject</label>
+                            <select id="contactSubject" name="subject">
+                                <option value="general">General Inquiry</option>
+                                <option value="reservation">Reservation Question</option>
+                                <option value="private">Private Events</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="careers">Careers</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message *</label>
+                            <textarea id="contactMessage" name="message" rows="4" placeholder="How can we help you?" required></textarea>
+                            <span class="form-error" id="contactMessageError"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="map-wrapper reveal-up">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>Google Maps Integration</p>
+                    <span>123 Gourmet Avenue, Paris District, NY 10001</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
         <div class="footer-top">
-            <div class="footer-container">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <rect width="40" height="40" rx="12" fill="#f59e0b"/>
-                            <path d="M12 28c0-6 4-10 8-14 4 4 8 8 8 14" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M16 20c2-2 4-2 6 0" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                            <circle cx="20" cy="14" r="3" stroke="white" stroke-width="2"/>
-                        </svg>
-                        <div class="logo-text">
-                            <span class="logo-title">TasteBite</span>
-                            <span class="logo-tagline">Fine Dining</span>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="#home" class="footer-logo">
+                            <i class="fas fa-utensils"></i>
+                            <span>La Maison Dorée</span>
+                        </a>
+                        <p>Experience the art of French gastronomy. Where every dish tells a story and every meal becomes a memory.</p>
+                        <div class="footer-socials">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                         </div>
                     </div>
-                    <p>Restaurant website with menu, reservations, and ordering system. Experience culinary excellence.</p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
-                            </svg>
-                        </a>
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#reservation">Reservations</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
                     </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <a href="#menu">Our Menu</a>
-                    <a href="#reservations">Reservations</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#about">About Us</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Contact</h4>
-                    <a href="tel:+15551234567">+1 (555) 123-4567</a>
-                    <a href="mailto:hello@tastebite.com">hello@tastebite.com</a>
-                    <span>123 Gourmet Avenue</span>
-                    <span>New York, NY 10001</span>
-                </div>
-                <div class="footer-links">
-                    <h4>Hours</h4>
-                    <span>Mon-Thu: 11AM - 10PM</span>
-                    <span>Fri-Sat: 11AM - 11PM</span>
-                    <span>Sunday: 10AM - 9PM</span>
-                    <span class="footer-note">Happy Hour: 4-7PM Daily</span>
+                    <div class="footer-links">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Private Dining</a></li>
+                            <li><a href="#">Catering</a></li>
+                            <li><a href="#">Wine Tastings</a></li>
+                            <li><a href="#">Cooking Classes</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                            <li><a href="#">Events</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-newsletter">
+                        <h4>Newsletter</h4>
+                        <p>Subscribe for exclusive offers, seasonal menus, and culinary events.</p>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p> TasteBite Restaurant. All rights reserved.</p>
+            <div class="container">
+                <p>&copy; 2026 La Maison Dorée. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Cart Sidebar -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3>Your Order</h3>
-            <button class="cart-close" onclick="toggleCart()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-            </button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <div class="cart-empty">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M9 22a1 1 0 100-2 1 1 0 000 2z"/>
-                    <path d="M20 22a1 1 0 100-2 1 1 0 000 2z"/>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
-                </svg>
-                <p>Your cart is empty</p>
-                <button class="btn-text" onclick="toggleCart(); scrollToMenu()">Browse Menu</button>
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Reservation Success Modal -->
+    <div class="modal" id="reservationModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
             </div>
-        </div>
-        <div class="cart-footer" id="cartFooter" style="display: none;">
-            <div class="cart-total">
-                <span>Total</span>
-                <span id="cartTotal">$0.00</span>
-            </div>
-            <button class="btn-checkout" onclick="checkout()">Checkout</button>
+            <h3>Reservation Confirmed!</h3>
+            <p>Your table has been reserved. We've sent a confirmation to your email. We look forward to welcoming you.</p>
+            <button class="btn btn-primary btn-block" id="reservationModalClose">Thank You!</button>
         </div>
     </div>
-    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <div class="toast-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"/>
-            </svg>
+    <!-- Contact Success Modal -->
+    <div class="modal" id="contactSuccessModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+            <button class="btn btn-primary btn-block" id="contactModalClose">Got it!</button>
         </div>
-        <div class="toast-message" id="toastMessage">Item added to cart!</div>
     </div>
 
     <script src="script.js"></script>
