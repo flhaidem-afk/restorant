@@ -2,6 +2,11 @@
    La Maison Dorée - Fine Dining Restaurant
    Complete Stylesheet
    ============================================ */
+   html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
 
 /* CSS Variables */
 :root {
